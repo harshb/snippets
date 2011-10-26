@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>jqtemplateloop</Title>
+      <Author>hb</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>jqtemplateloop</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="html"><![CDATA[<script id ="searchTemplate" type = "text/html">
+   <table>
+        {{each items}}
+            <tr>
+                <td>
+                    <a href='$${controller}/edit/$${ID}'> $${Title} </a>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</script>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

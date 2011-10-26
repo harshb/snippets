@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>EditForm</Title>
+      <Author>hb</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>editform</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="html"><![CDATA[<h2>@Html.ActionLink("Productions","Index","Vidpub") --- Edit @Model.Title</h2>
+<div class="vidform">
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Form.HiddenID(Model.ID)
+        @Form.TextBoxRequired(name: "Title", value: Model.Title)
+        @Form.TextBoxRequired(name: "Slug", value: Model.Slug)
+        @Form.TextArea(name: "Description", value: Model.Description)
+        @Form.TextBoxRequired(name: "Author", value: Model.Author)
+        @Form.TextBoxNumber(name: "Price", value: Model.Price)
+        @Form.TextBox(name: "ReleasedOn", value: Model.ReleasedOn)
+        @Form.Submit()
+    }
+</div>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

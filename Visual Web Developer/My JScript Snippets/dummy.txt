@@ -1,0 +1,4 @@
+This file is an artifact of the jQuery snippets installer to prevent your
+'My HTML Snippets' and 'My JScript Snippets' folder from being deleted when you uninstalled.
+
+I apologize for the inconvenience. You can safely delete this file.

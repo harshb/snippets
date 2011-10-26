@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>bbview</Title>
+      <Author>hb</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>bbview</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="jscript"><![CDATA[ListView = Backbone.View.extend({
+
+    initialize: function () {
+        this.template = $$("#listTemplate")
+    },
+
+    render: function () {
+
+        var html = this.template.tmpl({name : "Harsh"});
+        $$(this.el).html(html);
+        return this;
+    }
+
+});
+
+jQuery(function () {
+    var view = new ListView();
+    
+    $$("#production-list").html(view.render().el);
+    
+
+});
+
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

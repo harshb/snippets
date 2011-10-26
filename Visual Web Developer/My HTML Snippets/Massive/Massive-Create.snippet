@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>Massive-Create</Title>
+      <Author>hb</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>create</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="html"><![CDATA[try
+{
+    dynamic item = _table.CreateFrom(collection);
+    _table.Insert(item);
+    return RedirectToAction("Index");
+}
+catch
+{
+    TempData["alert"] = "There was an error adding this item";
+    return View();
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

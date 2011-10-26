@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>URLHelper</Title>
+      <Author>hb</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>urlhelper</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="html"><![CDATA[@functions{
+    public static string SiteRoot(bool includeAppPath = true){
+        var context = HttpContext.Current;
+        var Port = context.Request.ServerVariables["SERVER_PORT"];
+        if (Port == null || Port == "80" || Port == "443")
+            Port = "";
+        else
+            Port = ":" + Port;
+        var Protocol = context.Request.ServerVariables["SERVER_PORT_SECURE"];
+        if (Protocol == null || Protocol == "0")
+            Protocol = "http://";
+        else
+            Protocol = "https://";
+
+        var appPath = "";
+        if (includeAppPath) {
+            appPath = context.Request.ApplicationPath;
+            if (appPath == "/")
+                appPath = "";
+        }
+        var sOut = Protocol + context.Request.ServerVariables["SERVER_NAME"] + Port + appPath;
+        return sOut;      
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

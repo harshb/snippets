@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>demoSearch</Title>
+      <Author>hb</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>demoSearch</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="html"><![CDATA[<script id ="searchTemplate" type = "text/html">
+   <table>
+        {{each items}}
+            <tr>
+                <td>
+                    <a href='$${controller}/edit/$${ID}'> $${Title} </a>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</script>
+
+<h2>Vidpub Admin</h2>
+
+
+<form id="searchForm">
+    <label>Find1:</label>
+    <input type="text" id="search" />
+    <input type="submit" value="go" />
+</form>
+
+<h1>Productions</h1>
+<div id="productions-search-results" class="search-results"></div>
+<h1>Episodes</h1>
+<div id="episodes-search-results" class="search-results"></div>
+<h1>Customers</h1>
+<div id="customers-search-results" class="search-results"></div>
+
+
+<!--------JS -------------->
+var vidpubSearch = {
+    resetResults: function () {
+
+        $$(".search-results").empty();
+    },
+
+    getResults: function (query,controller) {
+
+        $$.getJSON('/' + controller, { query: query }, function (data) {
+            //alert(data.length);
+            var results = { controller: controller, items: data };
+            $$("#searchTemplate").tmpl(results).appendTo("#" + controller + "-search-results");
+        });
+    }
+
+};
+
+
+jQuery(function () {
+    $$('#searchForm').submit(function (e) {
+
+        var val = $$("#search").val();
+        vidpubSearch.resetResults();
+        if (val.length > 0) {
+            vidpubSearch.getResults(val, "productions");
+            vidpubSearch.getResults(val, "episodes");
+            vidpubSearch.getResults(val, "customers");
+        }   
+        else {
+            $$('.search-results').first().html('Select something to search for');
+        }
+        
+        e.preventDefault();
+
+    });
+
+});]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
