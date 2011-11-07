@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>jsoncontroller</Title>
+      <Author>tbadmin</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>jsoncontroller</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp"><![CDATA[using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Dynamic;
+using System.Web.Script.Serialization;
+using VidPub.Web.Infrastructure;
+
+namespace Klout.Controllers
+{
+    public class DataController : Controller
+    {
+        //
+        // GET: /Data/
+
+        public ActionResult Index(string param)
+        {
+            //return View();
+
+            return GetData();
+        }
+
+        [HttpGet]
+        public ActionResult GetData()
+        {
+            dynamic users = new List<dynamic>();
+
+            users.Add(new ExpandoObject());
+            users[0].Name = "37signals";
+
+            users.Add(new ExpandoObject());
+            users[1].Name = "2012ondazero";
+
+            // return View();
+            return VidpubJSON(users);
+        }
+
+        public ActionResult VidpubJSON(dynamic content)
+        {
+            var serializer = new JavaScriptSerializer();
+            serializer.RegisterConverters(new JavaScriptConverter[] { new ExpandoObjectConverter() });
+            var json = serializer.Serialize(content);
+            Response.ContentType = "application/json";
+            return Content(json);
+        }
+       
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
