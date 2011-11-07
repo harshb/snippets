@@ -1,1 +1,1 @@
-Harsh Bhasin's VS code snippits
+Harsh Bhasin's VS Code Snippits
