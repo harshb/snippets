@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>massivetests</Title>
+      <Author>tbadmin</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>massivetests</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp"><![CDATA[using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NUnit.Framework;
+using Targetbase.MI.Business.Entities;
+using Massive;
+using System.Dynamic;
+
+namespace Tests
+{
+
+    [TestFixture]
+    public class dbTests : TestBase
+    {
+        dynamic tbl = new DynamicModel("Tempur_OracleConnectionString", tableName: "MEDIA_CAT_DIGITAL_PLCMNT", primaryKeyField: "OID_MEDIA_CAT_DIGITAL_PLCMNT");
+        
+        [Test]
+        public void test_model()
+        {
+            COLOR_LU my = new COLOR_LU();
+            var x = my.All();
+
+        }
+
+        [Test]
+        public void test_massive_single()
+        {
+
+         
+            string code = "PAID_SEARCH_200106_636119";
+            string crit = "PLACEMENT_CODE ='" + code + "'";
+            var result = tbl.Single(where: crit);
+            string NETWORK = result.NETWORK;
+        }
+
+
+        [Test]
+        public void test_multiple()
+        {
+
+           
+           // var x = tbl.All();
+            //massive returns IEnumerable<ExpandoObject>
+            IEnumerable<dynamic> results = tbl.All();
+            dynamic d = new ExpandoObject();
+            d = results.FirstOrDefault();
+            string Pubname = d.PUBLISHER_NAME;
+
+            
+
+        }
+
+
+        [Test]
+        public void test_find()
+        {
+
+            
+            //var x = tbl.All();
+            var result = tbl.Find(PLACEMENT_CODE: "PAID_SEARCH_200106_636119");
+
+            
+        }
+    }
+}
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
