@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>massivemultiple</Title>
+      <Author>tbadmin</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>massivemultiple</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp"><![CDATA[dynamic tbl = new DynamicModel("Tempur_OracleConnectionString", tableName: "MEDIA_CAT_DIGITAL_PLCMNT", primaryKeyField: "OID_MEDIA_CAT_DIGITAL_PLCMNT");
+// var x = tbl.All();
+//massive returns IEnumerable<ExpandoObject>
+IEnumerable<dynamic> results = tbl.All();
+dynamic d = new ExpandoObject();
+d = results.FirstOrDefault();
+string Pubname = d.PUBLISHER_NAME;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -5,20 +5,20 @@
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
       </SnippetTypes>
-      <Title>Massive-table</Title>
-      <Author>hb</Author>
+      <Title>massivemodel</Title>
+      <Author>tbadmin</Author>
       <Description>
       </Description>
       <HelpUrl>
       </HelpUrl>
-      <Shortcut>model</Shortcut>
+      <Shortcut>massivemodel</Shortcut>
     </Header>
     <Snippet>
       <Declarations>
         <Literal Editable="true">
-          <ID>tableName</ID>
-          <ToolTip>tableName</ToolTip>
-          <Default>tableName</Default>
+          <ID>MyTable</ID>
+          <ToolTip>MyTable</ToolTip>
+          <Default>MyTable</Default>
           <Function>
           </Function>
         </Literal>
@@ -30,29 +30,22 @@
           </Function>
         </Literal>
         <Literal Editable="true">
-          <ID>ID</ID>
-          <ToolTip>ID</ToolTip>
-          <Default>ID</Default>
+          <ID>PrimaryKey</ID>
+          <ToolTip>PrimaryKey</ToolTip>
+          <Default>PrimaryKey</Default>
           <Function>
           </Function>
         </Literal>
       </Declarations>
-      <Code Language="csharp"><![CDATA[using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Massive;
-using System.Dynamic;
-//using System.Data.SqlServerCe;
+      <Code Language="csharp"><![CDATA[ public class $MyTable$:DynamicModel {
+        public $MyTable$()
+            : base("$ConnStr$", "$MyTable$", "$PrimaryKey$")
+        {
 
-namespace VidPub.Web.Model
-{
-    public class $tableName$:DynamicModel
-    {
-        //$ConnStr$,Table,Primary
-        public $tableName$() : base("$ConnStr$", "$tableName$", "$ID$") { }
-    }
-}]]></Code>
+        }
+       
+
+    }]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>
