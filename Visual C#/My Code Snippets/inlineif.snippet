@@ -5,16 +5,16 @@
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
       </SnippetTypes>
-      <Title>massivefetch</Title>
-      <Author>tbadmin</Author>
+      <Title>inlineif</Title>
+      <Author>hb</Author>
       <Description>
       </Description>
       <HelpUrl>
       </HelpUrl>
-      <Shortcut>massivefetch</Shortcut>
+      <Shortcut>inlineif</Shortcut>
     </Header>
     <Snippet>
-      <Code Language="csharp"><![CDATA[var result = tbl.Fetch("SELECT * FROM Categories");]]></Code>
+      <Code Language="csharp"><![CDATA[ int currentPage = pageIndex * pageSize == 0? 1: pageIndex * pageSize;]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

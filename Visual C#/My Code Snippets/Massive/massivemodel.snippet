@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>massivemodel</Title>
+      <Author>hb</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>massivemodel</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>Table_Client</ID>
+          <ToolTip>Table_Client</ToolTip>
+          <Default>Table_Client</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>MyNameSpace</ID>
+          <ToolTip>MyNameSpace</ToolTip>
+          <Default>MyNameSpace</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[using Massive;
+
+namespace $MyNameSpace$
+{
+    public class $Table_Client$ : DynamicModel
+    {
+        public $Table_Client$()
+            : base("MI", "$Table_Client$", "Objid")
+        {
+
+        }
+
+
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
