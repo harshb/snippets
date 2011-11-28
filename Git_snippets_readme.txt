@@ -4,7 +4,7 @@
 git remote -v
 
 
-Update remote repo (both)
+Update remote repo (both) - for mac be on win side
 -----------------------
 
 git add .
