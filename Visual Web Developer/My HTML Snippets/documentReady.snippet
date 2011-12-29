@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>documentReady</Title>
+      <Author>tbadmin</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>documentready</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="html"><![CDATA[<script type="text/JavaScript">
+    jQuery(document).ready(function () {//DOM not loaded, must use ready event
+        alert(jQuery('p').text());
+    });
+</script>]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

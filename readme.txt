@@ -1,1 +1,3 @@
-Harsh Bhasin's VS Code Snippits
+Harsh Bhasin's VS Code snippets
+git pull upstream 
+git push upstream master
